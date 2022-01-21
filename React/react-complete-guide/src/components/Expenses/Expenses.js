@@ -4,7 +4,7 @@ import "./Expenses.css";
 
 const Expenses = (props) => {
   const expenses = props.expenses;
-  console.log(expenses);
+  //console.log(expenses);
 
   return (
     <Card className="expenses">
