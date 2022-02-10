@@ -6,6 +6,8 @@ const requestHandler = (req, res) => {
     const url = req.url;
     const method = req.method;
 
+    res.setHeader('Content-Type', 'text/html') //says it will be returning a html code response
+
     if (url === '/') {
         res.write('<html>')
         res.write('<head><title>Enter message</title><head>')
@@ -18,7 +20,7 @@ const requestHandler = (req, res) => {
 
         req.on('data', (chunk) => { //chunks/pieces of the request
             body.push(chunk) //will execute often until its done
-        })
+        });
 
         return req.on('end', () => { //returning here will not execute the next lines
             const parsedBody = Buffer.concat(body).toString(); //Buffer => the bus stop for the stream req data 
@@ -37,7 +39,6 @@ const requestHandler = (req, res) => {
         //the return would be to quit the function and not run any code later
     }
 
-    res.setHeader('Content-Type', 'text/html') //says it will be returning a html code response
     res.write('<html>')
     res.write('<head><title>My First Page</title><head>')
     res.write('<body><h1>Hello from my Node.js Server!</h1></body>')
