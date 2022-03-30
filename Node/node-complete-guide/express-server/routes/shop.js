@@ -11,7 +11,14 @@ router.get("/", (req, res, next) => {
   //res.sendFile(path.join(rootDir, "views", "shop.html")); //dont use / because path.join concatenate
 
   const products = adminData.products;
-  res.render("shop", { prods: products, pageTitle: "Shop", path: '/' });
+  res.render("shop", { 
+    prods: products, 
+    pageTitle: "Shop", 
+    path: '/', 
+    hasProducts: products.length > 0,
+    activeShop: true, 
+    productCSS: true
+  }); //hasProducts here because the logic cant be in handlebars template
 });
 
 module.exports = router;
