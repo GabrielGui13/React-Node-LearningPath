@@ -3,8 +3,14 @@ const app = express()
 const bodyParser = require('body-parser') 
 const path = require('path')
 const rootDir = require('./util/path')
+const expressHbs = require('express-handlebars')
 
-const adminRoutes = require('./routes/admin')
+app.engine('hbs', expressHbs()) //pug is a express built in template, handlebars not, this initializes handlebars
+//app.set('view engine', 'pug') //tell express we are using a html template
+app.set('view engine', 'hbs') //
+app.set('views', 'views') //set views to another folder, it could be any name, like templates
+
+const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 const PORT = 3000
 
@@ -17,13 +23,15 @@ app.use(express.static(path.join(rootDir, 'public'))) //pass a static folder to 
     next() //allow the request to travel on to the next middleware
 }) */
 
-app.use('/admin', adminRoutes) //adds /admin to next paths 
+app.use('/admin', adminData.routes) //adds /admin to next paths 
 app.use(shopRoutes) //in second place if we were using 'use' instead of 'get'
+
 
 app.use((req, res, next) => { //will handle all http requests and paths
     res.status(404)
         //.send('<h1>Page not found</h1>')
-        .sendFile(path.join(rootDir, 'views', '404.html'))
+        //.sendFile(path.join(rootDir, 'views', '404.html'))
+        res.status(404).render('404', { pageTitle: 'Page Not Found' })
 })
 
 app.listen(PORT, () => {
