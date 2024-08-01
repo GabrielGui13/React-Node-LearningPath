@@ -1,25 +1,74 @@
-import { View, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Alert,
+  ScrollView,
+  Keyboard,
+} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
+import { useState } from "react";
 
-export default function StartGameScreen() {
+export default function StartGameScreen({ onPickNumber }) {
+  const [enteredNumber, setEnteredNumber] = useState("");
+
+  const numberInputHandler = (enteredText) => {
+    setEnteredNumber(enteredText);
+  };
+
+  function resetInputHandler() {
+    setEnteredNumber("");
+    Keyboard.dismiss();
+  }
+
+  const confirmInputHandler = () => {
+    const chosenNumber = parseInt(enteredNumber);
+
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert(
+        "Invalid number!",
+        "Number has to be a number betwee 1 and 99",
+        [
+          {
+            text: "Okay",
+            style: "destructive",
+            onPress: resetInputHandler,
+          },
+        ],
+      );
+      return;
+    }
+
+		onPickNumber(chosenNumber);
+  };
+
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.numberInput}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize=""
-        autoCorrect={false}
-      />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton>Reset</PrimaryButton>
-        </View>
-        <View style={styles.buttonContainer}>
-          <PrimaryButton>Confirm</PrimaryButton>
+    // ScrollView with keyboardShouldPersistTaps="handled" to dismiss keyboard when tapping outside of the input
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      alwaysBounceVertical={false}
+    >
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.numberInput}
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize=""
+          autoCorrect={false}
+          onChangeText={numberInputHandler}
+          value={enteredNumber}
+        />
+
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
+          </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -57,7 +106,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
   },
-	buttonContainer: {
-		flex: 1,
-	}
+  buttonContainer: {
+    flex: 1,
+  },
 });

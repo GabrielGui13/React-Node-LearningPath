@@ -14,3 +14,4 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 * We wrap \<Drawer> between \<GestureHandlerRootView> to get the  animation
 * We use \<LinearGradient> from "expo-linear-gradient" to get a gradient background
 * We use \<ImageBackground> to render a background image
+* \<SafeAreaView> is an iOS component to render UI avoiding native elements, like statusbar, iphone notch, bat, and etc 
