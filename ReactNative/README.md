@@ -18,3 +18,6 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 * Some Styling are different for iOS and Android, for example:
 	* For making View shadows, you use "elevation" for Android, and "shadow..." properties for iOS
 	* You cannot style directly in the Text component passing borderRadius for example, iOS doesn't recognizes it, instead, do this styling inside the View component
+* We can get the 'useFonts' hook by installing 'expo-font', and can use Google Fonts installing '@expo-google-fonts/[font]'
+* useFonts receives an object as a parameter, where you put the font name "variable", and its path using require, for example: { 'open-sans': require('./assets/fonts/OpenSans-Regular.ttf') }
+* You get a loading boolean from useFonts, and you can display a loading screen by installing 'expo-app-loading' and using <AppLoading>
