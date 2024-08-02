@@ -62,6 +62,8 @@ export default function App() {
   }
 
   return (
+    <>
+    <StatusBar style="light"/>
     <LinearGradient
       colors={[Colors.primary700, Colors.accent500]}
       style={styles.rootScreen}
@@ -76,6 +78,7 @@ export default function App() {
         {/* <StartGameScreen /> */}
       </ImageBackground>
     </LinearGradient>
+    </>
   );
 }
 

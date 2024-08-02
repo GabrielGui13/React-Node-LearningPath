@@ -21,3 +21,6 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 * We can get the 'useFonts' hook by installing 'expo-font', and can use Google Fonts installing '@expo-google-fonts/[font]'
 * useFonts receives an object as a parameter, where you put the font name "variable", and its path using require, for example: { 'open-sans': require('./assets/fonts/OpenSans-Regular.ttf') }
 * You get a loading boolean from useFonts, and you can display a loading screen by installing 'expo-app-loading' and using <AppLoading>
+* If you have 2 different components named: 'Button.ios.js' and 'Button.android.js', when importing from './BigButton', React Native will automatically pick up the file based on the running platform
+* You can change orientation on app.js, to 'portrait' (fixed), 'landscape' (fixed), 'default' (dynamic)
+* useWindowDimensions hook to get dynamically changed device's window and height by destructuring
