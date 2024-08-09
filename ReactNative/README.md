@@ -28,3 +28,5 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 ```js
 	<Pressable android_ripple={{ color: "#ccc" }} style={({ pressed }) => [pressed && styles.buttonPressed,]}>
 ```
+* A universal library that provides separate APIs for Audio and Video playback: expo-av
+* A library that provides access to the local file system on the device: expo-file-system
