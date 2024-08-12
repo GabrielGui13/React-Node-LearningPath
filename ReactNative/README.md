@@ -67,6 +67,12 @@ export declare module 'styled-components' {
   export type DefaultTheme = ThemeType
 }
 ```
+* And then, you wrap all your aplication between a <ThemeProvider theme={theme}>, and you can access by your styled custom components:
+```js
+export const CustomText = styled.Text`
+	color: ${({ theme }) => theme.colors.primary}
+`
+```
 * To check for local authentication types (faceid, biometric, facial, etc):
 ```js
 import * as LocalAuthentication from 'expo-local-authentication'
