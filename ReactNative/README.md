@@ -67,3 +67,50 @@ export declare module 'styled-components' {
   export type DefaultTheme = ThemeType
 }
 ```
+* To check for local authentication types (faceid, biometric, facial, etc):
+```js
+import * as LocalAuthentication from 'expo-local-authentication'
+
+async function verifvAvaiableAuthentication() {
+  const compatible = await LocalAuthentication.hasHardwareAsync()
+  console.log('compatible', compatible)
+
+  if (!compatible) {
+    localAuthenticate()
+  }
+
+  const isBiometricEnrolled = await LocalAuthentication.isEnrolledAsync()
+  console.log('isBiometricEnrolled', isBiometricEnrolled)
+
+  if (!isBiometricEnrolled) {
+    localAuthenticate()
+  }
+
+  const types = await LocalAuthentication.supportedAuthenticationTypesAsync()
+  const parsedTypes = types.map(
+    (type) => LocalAuthentication.AuthenticationType[type],
+  )
+
+  setLocalAuthenticationAvaialable(parsedTypes[0])
+
+  console.log('parsed types', parsedTypes)
+}
+```
+* Render SplashScreen when waiting for loading:
+```js
+import * as SplashScreen from 'expo-splash-screen'
+
+useEffect(() => {
+  onLayoutRootView()
+}, [loading])
+
+async function onLayoutRootView() {
+  if (loading) {
+    await SplashScreen.preventAutoHideAsync()
+  }
+
+  if (!loading) {
+    await SplashScreen.hideAsync()
+  }
+}
+```
