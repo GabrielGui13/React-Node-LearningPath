@@ -31,3 +31,39 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 * A universal library that provides separate APIs for Audio and Video playback: expo-av
 * A library that provides access to the local file system on the device: expo-file-system
 * import { RFValue } from 'react-native-responsive-fontsize' to put on css
+* To load fonts (theme is used to set a theme to styled-components for example):
+```js
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  useFonts,
+} from '@expo-google-fonts/roboto'
+
+const [fontsLoaded] = useFonts({
+	Roboto_400Regular,
+	Roboto_500Medium,
+	Roboto_700Bold,
+})
+
+const theme = {
+	colors: {},
+  fonts: {
+    regular: 'Roboto_400Regular',
+    medium: 'Roboto_500Medium',
+    bold: 'Roboto_700Bold',
+  },
+}
+```
+* To load a default theme to default components, you may create a "styled.d.ts":
+```js
+import 'styled-components'
+
+import { colorsTheme } from './theme'
+
+export type ThemeType = typeof colorsTheme
+
+export declare module 'styled-components' {
+  export type DefaultTheme = ThemeType
+}
+```
