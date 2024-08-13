@@ -41,8 +41,12 @@ export const theme = {
   },
 
   fonts: {
-    regular: 'Roboto_400Regular',
-    medium: 'Roboto_500Medium',
-    bold: 'Roboto_700Bold',
+    poppins: {
+      thin: 'Poppins_100Thin',
+      light: 'Poppins_300Light',
+      regular: 'Poppins_400Regular',
+      medium: 'Poppins_500Medium',
+      bold: 'Poppins_700Bold',
+    },
   },
 }
