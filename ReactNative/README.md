@@ -31,7 +31,7 @@ npx expo install @react-navigation/drawer react-native-gesture-handler react-nat
 * A universal library that provides separate APIs for Audio and Video playback: expo-av
 * A library that provides access to the local file system on the device: expo-file-system
 * import { RFValue } from 'react-native-responsive-fontsize' to put on css
-* To load fonts (theme is used to set a theme to styled-components for example):
+* To load google fonts (theme is used to set a theme to styled-components for example):
 ```js
 import {
   Roboto_400Regular,
@@ -54,6 +54,38 @@ const theme = {
     bold: 'Roboto_700Bold',
   },
 }
+```
+* After configuring fonts, declare them on plugins field found on app.json
+```js
+"plugins": [
+  [
+    "expo-font",
+    {
+      "fonts": ["node_modules/@expo-google-fonts/inter/Inter_900Black.ttf"]
+    }
+  ]
+]
+```
+* Or if you are using custom fonts, you can configure them by:
+```js
+const [loaded, error] = useFonts({
+  "Poppins": require("./assets/fonts/Poppins-Regular.ttf"),
+  "Poppins-Light": require("./assets/fonts/Poppins-Light"),
+  "Poppins-Thin": require("./assets/fonts/Poppins-Thin.ttf"),
+})
+```
+* And declare them in app.json:
+```js
+  "expo": {
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Poppins-Regular.ttf", "./assets/fonts/Poppins-Light"]
+        }
+      ]
+    ]
+  }
 ```
 * To load a default theme to default components, you may create a "styled.d.ts":
 ```js
