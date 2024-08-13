@@ -152,3 +152,13 @@ async function onLayoutRootView() {
   }
 }
 ```
+* To close the keyboard when touching outside the input (wrap the screen):
+```js
+<TouchableWithoutFeedback onPress={(e) => Keyboard.dismiss()}>
+  {children}
+</TouchableWithoutFeedback>
+```
+* To create a password input:
+```js
+<TextInput secureTextEntry={true} />
+```

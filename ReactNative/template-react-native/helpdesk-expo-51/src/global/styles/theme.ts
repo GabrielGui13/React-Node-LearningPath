@@ -1,16 +1,24 @@
 export const theme = {
   colors: {
-    primary: '#0d82d6',
+    primary: '#0A2D4A',
+    primary_light: '#002A6F',
 
-    green: '#02A863',
-    green_light: '#35B982',
+    text: '#1A202C',
+    text_primary: '#0A2D4A',
+    text_primary_light: '#002A6F',
+    text_black: '#000000',
+    text_white: '#FFFFFF',
+    text_muted: '#7B7B7B',
 
-    button: '#262626',
+    background_dark: '#1A202C',
+    background_light: '#f4f6fb',
+
+    button: '#0A2D4A',
+    button_dark: '#1A202C',
     button_light: '#EBEBEA',
     button_secondary: '#3B3A4D',
 
-    secondary: '#F8DB9A',
-    secondary_light: 'rgba(255, 135, 44, 0.3)',
+    border: "#002A6F",
 
     success: '#12a454',
     success_light: 'rgba(18, 164, 84, 0.5)',
@@ -20,11 +28,9 @@ export const theme = {
     attention: '#e83f5b',
     attention_light: '#e8613f',
 
-    background_light: '#f4f6fb',
 
     shape: '#FFFFFF',
     title: '#363f5f',
-    text: '#7D7C78',
     text_dark: '#37352F',
     text_light: '#d8d8d8',
     background: '#101010',
@@ -32,12 +38,9 @@ export const theme = {
     light_border: '#E5E5E5',
 
     text_title: '#1E232C',
-    text_muted: '#B2BBC4',
     text_span: '#97A0AB',
 
     text_span_foreground: '#7D7C78',
-
-    border: '#E7E5E4',
   },
 
   fonts: {
