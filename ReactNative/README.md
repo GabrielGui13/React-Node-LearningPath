@@ -11,7 +11,7 @@
 ```sh
 npx expo install @react-navigation/drawer react-native-gesture-handler react-native-reanimated
 ```
-* We wrap \<Drawer> between \<GestureHandlerRootView> to get the  animation
+* We wrap \<Drawer> between \<GestureHandlerRootView> to get the animation
 * We use \<LinearGradient> from "expo-linear-gradient" to get a gradient background
 * We use \<ImageBackground> to render a background image
 * \<SafeAreaView> is an iOS component to render UI avoiding native elements, like statusbar, iphone notch, bat, and etc
@@ -162,3 +162,4 @@ async function onLayoutRootView() {
 ```js
 <TextInput secureTextEntry={true} />
 ```
+* For beautiful handled modalize, use react-native-portalize to render anything on top of everything, and then react-native-modalize to the proper modalize component, dont forget to wrap the application with the <GestureHandlerRootView />
