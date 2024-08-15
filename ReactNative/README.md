@@ -163,3 +163,7 @@ async function onLayoutRootView() {
 <TextInput secureTextEntry={true} />
 ```
 * For beautiful handled modalize, use react-native-portalize to render anything on top of everything, and then react-native-modalize to the proper modalize component, dont forget to wrap the application with the <GestureHandlerRootView />
+* You can forward a ref via a custom component to another component (needed when I created a custom Modalize component), it will get 2 parameters, the props, and the ref:
+```js
+export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordModalizeProps, ref) => { return ( <Modalize ref={ref}> ) }
+```
