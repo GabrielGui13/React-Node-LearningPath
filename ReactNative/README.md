@@ -168,3 +168,4 @@ async function onLayoutRootView() {
 export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordModalizeProps, ref) => { return ( <Modalize ref={ref}> ) }
 ```
 * it may be obvious, but just reinforcing, wrap NavigationContainer between EVERYTHING, or EVERYWHERE you will use him, to prevent getting the same errors.
+* Android modalize error troubleshooting: https://github.com/jeremybarbet/react-native-modalize/issues/451
