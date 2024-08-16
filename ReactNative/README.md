@@ -167,3 +167,4 @@ async function onLayoutRootView() {
 ```js
 export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordModalizeProps, ref) => { return ( <Modalize ref={ref}> ) }
 ```
+* it may be obvious, but just reinforcing, wrap NavigationContainer between EVERYTHING, or EVERYWHERE you will use him, to prevent getting the same errors.
