@@ -169,3 +169,4 @@ export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordMo
 ```
 * it may be obvious, but just reinforcing, wrap NavigationContainer between EVERYTHING, or EVERYWHERE you will use him, to prevent getting the same errors.
 * Android modalize error troubleshooting: https://github.com/jeremybarbet/react-native-modalize/issues/451
+* KeyboardAvoidingView natively DONT WORK with a child ScrollView, to handle that, use KeyboardAwareScrollView from react-native-keyboard-aware-scroll-view package
