@@ -203,3 +203,15 @@ export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordMo
 ```shell
 eas build --profile development-simulator --platform android
 ```
+* Declare global types to react-navigation:
+```typescript
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList {
+      SignIn: undefined
+      SignUp: undefined
+      InviteCode: undefined
+    }
+  }
+}
+```
