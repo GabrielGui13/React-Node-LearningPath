@@ -11,6 +11,8 @@ import { Colors } from './constants/colors';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  Platfrom
+  
   return (
     <>
       <StatusBar style="dark" />

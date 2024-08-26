@@ -171,3 +171,35 @@ export const ForgotPasswordModalize = forwardRef(({ ...props }: ForgotPasswordMo
 * Android modalize error troubleshooting: https://github.com/jeremybarbet/react-native-modalize/issues/451
 * KeyboardAvoidingView natively DONT WORK with a child ScrollView, to handle that, use KeyboardAwareScrollView from react-native-keyboard-aware-scroll-view package
 * To get a fully customizable OTP Input, use "react-native-otp-entry" 
+* Use EAS to build/generate apk's from expo-dev, you configure everything on eas.json file:
+```json
+{
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "development-simulator": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "default",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "channel": "default"
+    }
+  }
+}
+```
+* First of all, install expo-dev-client, and then run the following command:
+```shell
+eas build --profile development-simulator --platform android
+```
