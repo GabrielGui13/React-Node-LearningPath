@@ -215,3 +215,4 @@ declare global {
   }
 }
 ```
+* When trying to use 'react-native-reanimated-carousel', I got some errors, because this lib uses 'react-native-reanimated', and I installed using yarn, don't, use expo: 'npx expo install react-native-reanimated', and reload, maybe you will need to download gesture-handler too.
